@@ -1,0 +1,2226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="埼玉県嵐山町の福島ブルーベリーファーム。30種類以上のブルーベリーから、あなたの"推し"を見つけよう。ブルーベリー狩り体験・直売を行っています。">
+  <meta name="keywords" content="ブルーベリー狩り,嵐山町,埼玉,福島ブルーベリーファーム,ブルーベリー,摘み取り体験">
+  <meta property="og:title" content="埼玉嵐山 福島ブルーベリーファーム">
+  <meta property="og:description" content="30種類以上のブルーベリーから、あなたの"推し"を見つけよう。">
+  <meta property="og:type" content="website">
+  <title>埼玉嵐山🫐福島ブルーベリーファーム</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =============================================
+       CSS Variables & Reset
+    ============================================= */
+    :root {
+      --color-primary: #3d2a6e;       /* ブルーベリーの深い紫 */
+      --color-primary-light: #6b4fa0; /* 紫 ライト */
+      --color-primary-dark: #251a44;  /* 紫 ダーク */
+      --color-berry: #8b2252;         /* 熟したベリーの赤紫 */
+      --color-berry-light: #c4547a;   /* ベリー ライト */
+      --color-brown: #6b4226;         /* 栗のブラウン */
+      --color-brown-light: #a0714f;   /* ブラウン ライト */
+      --color-green: #2d5016;         /* 葉の深緑 */
+      --color-green-light: #4a7c28;   /* 緑 ライト */
+      --color-earth: #8b7355;         /* アースカラー */
+      --color-bg: #faf7f2;            /* 生成り背景 */
+      --color-bg-warm: #f5f0e8;       /* 温かみのある背景 */
+      --color-text: #2c2416;          /* テキスト（温かみのある黒） */
+      --color-text-light: #6b5a47;    /* サブテキスト */
+      --color-white: #fffef9;         /* オフホワイト */
+      --font-serif: 'Zen Old Mincho', 'Noto Serif JP', '游明朝', 'Yu Mincho', serif;
+      --font-sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+      --shadow-soft: 0 4px 20px rgba(61, 42, 110, 0.08);
+      --shadow-card: 0 2px 12px rgba(61, 42, 110, 0.10);
+      --radius-card: 16px;
+      --radius-btn: 50px;
+      --transition: 0.3s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* =============================================
+       Typography
+    ============================================= */
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--color-primary-light);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      color: var(--color-text-light);
+      line-height: 1.9;
+      max-width: 600px;
+    }
+
+    /* =============================================
+       Layout Utilities
+    ============================================= */
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 80px 0; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    /* =============================================
+       Navigation
+    ============================================= */
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: all var(--transition);
+    }
+
+    #nav.scrolled {
+      background: rgba(250, 247, 242, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(61, 42, 110, 0.08);
+      padding: 12px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.3;
+    }
+
+    .nav-logo span { display: block; font-size: 0.7rem; font-weight: 400; color: var(--color-text-light); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      color: var(--color-text);
+      letter-spacing: 0.05em;
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--color-primary);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--color-primary); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--color-primary);
+      color: var(--color-white) !important;
+      padding: 8px 20px;
+      border-radius: var(--radius-btn);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .nav-cta:hover { background: var(--color-primary-light) !important; transform: translateY(-1px); }
+    .nav-cta::after { display: none !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-primary);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    /* Mobile nav */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--color-bg);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .nav-mobile.open { display: flex; }
+
+    .nav-mobile a {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--color-primary-dark);
+    }
+
+    .nav-mobile-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-text);
+    }
+
+    /* =============================================
+       Buttons
+    ============================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: var(--radius-btn);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-white);
+      box-shadow: 0 4px 16px rgba(61, 42, 110, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(61, 42, 110, 0.30);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--color-primary);
+      color: var(--color-white);
+      transform: translateY(-2px);
+    }
+
+    .btn-white {
+      background: var(--color-white);
+      color: var(--color-primary);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+
+    .btn-white:hover {
+      background: var(--color-bg-warm);
+      transform: translateY(-2px);
+    }
+
+    /* =============================================
+       Season Banner
+    ============================================= */
+    .season-banner {
+      background: linear-gradient(135deg, var(--color-berry), var(--color-primary));
+      color: white;
+      text-align: center;
+      padding: 10px 24px;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      position: relative;
+      z-index: 998;
+    }
+
+    .season-banner strong { font-weight: 700; }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(107, 79, 160, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 30%, rgba(139, 34, 82, 0.10) 0%, transparent 50%),
+        linear-gradient(160deg, #f5f0e8 0%, #e8dff5 30%, #d5c5e8 60%, #f0e8f5 100%);
+      z-index: 0;
+    }
+
+    /* Decorative blueberries */
+    .hero-berries {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .berry-deco {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.12;
+    }
+
+    .berry-deco:nth-child(1) { width: 300px; height: 300px; background: var(--color-primary); top: -80px; right: -60px; }
+    .berry-deco:nth-child(2) { width: 180px; height: 180px; background: var(--color-berry); bottom: 10%; left: -40px; }
+    .berry-deco:nth-child(3) { width: 100px; height: 100px; background: var(--color-primary-light); top: 30%; right: 5%; }
+    .berry-deco:nth-child(4) { width: 60px; height: 60px; background: var(--color-berry); top: 20%; left: 15%; }
+    .berry-deco:nth-child(5) { width: 40px; height: 40px; background: var(--color-primary); bottom: 25%; right: 20%; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 120px 24px 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(107, 79, 160, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      color: var(--color-primary);
+      letter-spacing: 0.1em;
+      margin-bottom: 28px;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .hero-title .accent {
+      color: var(--color-berry);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title .accent::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-berry), var(--color-primary));
+      border-radius: 2px;
+      opacity: 0.4;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--color-text-light);
+      margin-bottom: 40px;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      display: block;
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+      letter-spacing: 0.05em;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--color-text-light);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      animation: bounce 2s infinite;
+    }
+
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--color-primary-light), transparent);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* Illustrated blueberry cluster */
+    .hero-illustration {
+      margin: 0 auto 32px;
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }
+
+    .berry-cluster {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* =============================================
+       ABOUT
+    ============================================= */
+    #about {
+      background: var(--color-white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-image-main {
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--color-bg-warm), #e8dff5);
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-image-placeholder {
+      text-align: center;
+      padding: 32px;
+    }
+
+    .about-image-placeholder .big-emoji { font-size: 5rem; display: block; margin-bottom: 12px; }
+    .about-image-placeholder p { color: var(--color-text-light); font-size: 0.85rem; }
+
+    .about-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--color-primary);
+      color: white;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 20px rgba(61, 42, 110, 0.3);
+    }
+
+    .about-badge strong { font-size: 1.5rem; font-family: var(--font-serif); display: block; }
+
+    .about-content { }
+
+    .about-message {
+      background: var(--color-bg-warm);
+      border-left: 3px solid var(--color-primary);
+      padding: 20px 24px;
+      border-radius: 0 12px 12px 0;
+      margin: 28px 0;
+      font-style: italic;
+      color: var(--color-text);
+      line-height: 2;
+    }
+
+    .about-farmer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .farmer-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary-light), var(--color-berry));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .farmer-info { }
+    .farmer-name { font-family: var(--font-serif); font-weight: 700; color: var(--color-primary-dark); }
+    .farmer-title { font-size: 0.8rem; color: var(--color-text-light); }
+
+    /* =============================================
+       VARIETIES (品種図鑑)
+    ============================================= */
+    #varieties {
+      background: var(--color-bg);
+    }
+
+    .varieties-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .variety-card {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(107, 79, 160, 0.06);
+    }
+
+    .variety-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-berry));
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .variety-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(61, 42, 110, 0.14);
+    }
+
+    .variety-card:hover::before { opacity: 1; }
+
+    .variety-icon { font-size: 2.4rem; margin-bottom: 12px; }
+
+    .variety-oshi-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: linear-gradient(135deg, var(--color-berry), var(--color-primary));
+      color: white;
+      font-size: 0.65rem;
+      padding: 3px 10px;
+      border-radius: 50px;
+      letter-spacing: 0.08em;
+    }
+
+    .variety-name {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 6px;
+    }
+
+    .variety-name-en {
+      font-size: 0.75rem;
+      color: var(--color-text-light);
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .variety-desc {
+      font-size: 0.88rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .variety-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .variety-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: var(--color-text-light);
+    }
+
+    .variety-bar-label { width: 28px; flex-shrink: 0; }
+
+    .variety-bar {
+      flex: 1;
+      height: 6px;
+      background: rgba(107, 79, 160, 0.1);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .variety-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.6s ease;
+    }
+
+    .bar-sweet { background: linear-gradient(90deg, #e8b4c8, var(--color-berry)); }
+    .bar-sour  { background: linear-gradient(90deg, #a8c8f0, var(--color-primary)); }
+
+    .variety-season {
+      margin-top: 12px;
+      font-size: 0.75rem;
+      color: var(--color-text-light);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .varieties-cta {
+      text-align: center;
+      padding: 48px 32px;
+      background: linear-gradient(135deg, var(--color-bg-warm), #ede5f5);
+      border-radius: 24px;
+      border: 1px solid rgba(107, 79, 160, 0.1);
+    }
+
+    .varieties-cta p {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--color-primary-dark);
+      margin-bottom: 20px;
+    }
+
+    /* =============================================
+       PICKING (ブルーベリー狩り)
+    ============================================= */
+    #picking {
+      background: linear-gradient(160deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+      color: white;
+    }
+
+    #picking .section-label { color: rgba(255,255,255,0.6); }
+    #picking .section-title { color: white; }
+    #picking .section-subtitle { color: rgba(255,255,255,0.8); }
+
+    .picking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .picking-info-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    .info-card-icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .info-card-label { font-size: 0.72rem; letter-spacing: 0.1em; opacity: 0.7; margin-bottom: 4px; }
+    .info-card-value { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; }
+
+    .picking-tips {
+      margin-top: 32px;
+    }
+
+    .tip-item {
+      display: flex;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .tip-item:last-child { border-bottom: none; }
+
+    .tip-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+    .tip-text { font-size: 0.9rem; opacity: 0.9; }
+
+    .picking-map {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+    }
+
+    .map-placeholder {
+      background: rgba(255,255,255,0.08);
+      aspect-ratio: 4/3;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+    }
+
+    .map-placeholder .map-icon { font-size: 3rem; }
+
+    .access-info {
+      margin-top: 24px;
+    }
+
+    .access-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .access-item:last-child { border-bottom: none; }
+    .access-item strong { opacity: 0.6; font-size: 0.75rem; letter-spacing: 0.08em; }
+
+    .picking-notes {
+      margin-top: 32px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 20px 24px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .picking-notes h3 { font-size: 0.85rem; letter-spacing: 0.1em; opacity: 0.7; margin-bottom: 12px; }
+    .picking-notes ul { padding-left: 16px; font-size: 0.88rem; opacity: 0.85; line-height: 1.9; }
+
+    /* =============================================
+       HOW TO EAT
+    ============================================= */
+    #howtoeeat {
+      background: var(--color-white);
+    }
+
+    .eat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .eat-card {
+      text-align: center;
+      padding: 32px 24px;
+      border-radius: var(--radius-card);
+      border: 1px solid rgba(107, 79, 160, 0.1);
+      transition: all var(--transition);
+    }
+
+    .eat-card:hover {
+      background: var(--color-bg-warm);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .eat-icon { font-size: 3rem; margin-bottom: 16px; }
+
+    .eat-title {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 8px;
+    }
+
+    .eat-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+    }
+
+    .eat-instagram {
+      background: linear-gradient(135deg, #f5f0e8, #ede5f5);
+      border-radius: 24px;
+      padding: 40px 32px;
+      text-align: center;
+      border: 1px solid rgba(107, 79, 160, 0.1);
+    }
+
+    .eat-instagram p {
+      font-size: 1rem;
+      color: var(--color-text);
+      margin-bottom: 20px;
+    }
+
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: white;
+      padding: 12px 28px;
+      border-radius: var(--radius-btn);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all var(--transition);
+    }
+
+    .instagram-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(131, 58, 180, 0.35);
+    }
+
+    /* =============================================
+       COMMUNITY (地域連携)
+    ============================================= */
+    #community {
+      background: var(--color-bg);
+    }
+
+    .community-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .community-card {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition);
+    }
+
+    .community-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(61, 42, 110, 0.12);
+    }
+
+    .community-card-header {
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .community-card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .icon-bg-green { background: linear-gradient(135deg, #d4edda, #a8d5b0); }
+    .icon-bg-brown { background: linear-gradient(135deg, #f0e0cc, #d4a882); }
+    .icon-bg-yellow { background: linear-gradient(135deg, #fff3cd, #ffd966); }
+
+    .community-card-title { font-family: var(--font-serif); font-weight: 700; color: var(--color-primary-dark); margin-bottom: 4px; }
+    .community-card-type { font-size: 0.75rem; color: var(--color-text-light); letter-spacing: 0.05em; }
+
+    .community-card-body {
+      padding: 0 24px 24px;
+      font-size: 0.88rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+      border-top: 1px solid rgba(107, 79, 160, 0.06);
+      padding-top: 16px;
+      margin-top: 0;
+    }
+
+    .day-trip {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-berry));
+      border-radius: 24px;
+      padding: 48px 40px;
+      color: white;
+      text-align: center;
+    }
+
+    .day-trip h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .day-trip p {
+      opacity: 0.85;
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+    }
+
+    .day-trip-steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .trip-step {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 0.85rem;
+      text-align: center;
+      min-width: 120px;
+    }
+
+    .trip-step .step-icon { font-size: 1.5rem; display: block; margin-bottom: 6px; }
+    .trip-arrow { font-size: 1.2rem; opacity: 0.5; margin: 0 8px; }
+
+    /* =============================================
+       INSTAGRAM FEED
+    ============================================= */
+    #instagram {
+      background: var(--color-white);
+      text-align: center;
+    }
+
+    .insta-feed-placeholder {
+      background: linear-gradient(135deg, #f5f0e8, #ede5f5);
+      border-radius: 24px;
+      padding: 60px 40px;
+      border: 1px solid rgba(107, 79, 160, 0.1);
+      margin-bottom: 32px;
+    }
+
+    .insta-grid-preview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+
+    .insta-cell {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      background: white;
+      border: 1px solid rgba(107, 79, 160, 0.08);
+      transition: transform var(--transition);
+    }
+
+    .insta-cell:hover { transform: scale(0.97); }
+
+    .insta-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      margin-bottom: 24px;
+    }
+
+    /* =============================================
+       CONTACT
+    ============================================= */
+    #contact {
+      background: var(--color-bg-warm);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(107, 79, 160, 0.1);
+    }
+
+    .contact-info-item:last-child { border-bottom: none; }
+
+    .contact-info-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--color-primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-info-label { font-size: 0.75rem; color: var(--color-text-light); letter-spacing: 0.08em; margin-bottom: 4px; }
+    .contact-info-value { font-weight: 500; color: var(--color-text); }
+
+    .contact-phone-link {
+      font-size: 1.3rem;
+      font-family: var(--font-serif);
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    .contact-form {
+      background: white;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 6px;
+      letter-spacing: 0.03em;
+    }
+
+    .form-label .required {
+      color: var(--color-berry);
+      font-size: 0.75rem;
+      margin-left: 4px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid rgba(107, 79, 160, 0.15);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: var(--color-bg);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--color-primary-light);
+      box-shadow: 0 0 0 3px rgba(107, 79, 160, 0.08);
+    }
+
+    .form-textarea { min-height: 120px; resize: vertical; }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius-btn);
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      transition: all var(--transition);
+    }
+
+    .form-submit:hover {
+      background: var(--color-primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(61, 42, 110, 0.25);
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--color-text-light);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    #footer {
+      background: var(--color-primary-dark);
+      color: rgba(255,255,255,0.8);
+      padding: 64px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand { }
+
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      opacity: 0.6;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: background var(--transition);
+    }
+
+    .social-link:hover { background: rgba(255,255,255,0.2); }
+
+    .footer-col-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      opacity: 0.5;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 0.88rem; opacity: 0.7; transition: opacity var(--transition); }
+    .footer-links a:hover { opacity: 1; }
+
+    .footer-address {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      line-height: 2;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      opacity: 0.5;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* =============================================
+       Decorative dividers
+    ============================================= */
+    .wave-divider {
+      width: 100%;
+      line-height: 0;
+      overflow: hidden;
+    }
+
+    .wave-divider svg { display: block; width: 100%; }
+
+    /* =============================================
+       Animations
+    ============================================= */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 900px) {
+      section { padding: 60px 0; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .picking-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    @media (max-width: 640px) {
+      .picking-info-cards { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hero-stats { gap: 24px; }
+      .day-trip-steps { flex-direction: column; }
+      .trip-arrow { transform: rotate(90deg); }
+      .insta-grid-preview { grid-template-columns: repeat(3, 1fr); }
+      .contact-form { padding: 24px; }
+      .varieties-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 400px) {
+      .varieties-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- シーズンバナー -->
+  <div class="season-banner">
+    🫐 <strong>2025年ブルーベリー狩り</strong>、7月上旬より開園予定！お問い合わせはお気軽に。
+  </div>
+
+  <!-- ナビゲーション -->
+  <nav id="nav">
+    <div class="container nav-inner">
+      <div class="nav-logo">
+        🫐 福島ブルーベリーファーム
+        <span>埼玉県嵐山町</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">農園について</a></li>
+        <li><a href="#varieties">品種図鑑</a></li>
+        <li><a href="#picking">狩り体験</a></li>
+        <li><a href="#community">地域連携</a></li>
+        <li><a href="#instagram">Instagram</a></li>
+        <li><a href="#contact" class="nav-cta">お問い合わせ</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- モバイルナビ -->
+  <div class="nav-mobile" id="mobileNav">
+    <button class="nav-mobile-close" id="mobileNavClose">✕</button>
+    <a href="#about" onclick="closeMobileNav()">農園について</a>
+    <a href="#varieties" onclick="closeMobileNav()">品種図鑑</a>
+    <a href="#picking" onclick="closeMobileNav()">狩り体験</a>
+    <a href="#howtoeeat" onclick="closeMobileNav()">食べ方</a>
+    <a href="#community" onclick="closeMobileNav()">地域連携</a>
+    <a href="#instagram" onclick="closeMobileNav()">Instagram</a>
+    <a href="#contact" onclick="closeMobileNav()">お問い合わせ</a>
+  </div>
+
+  <!-- =============================================
+       HERO
+  ============================================= -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-berries">
+      <div class="berry-deco"></div>
+      <div class="berry-deco"></div>
+      <div class="berry-deco"></div>
+      <div class="berry-deco"></div>
+      <div class="berry-deco"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        🌿 埼玉県比企郡嵐山町
+      </div>
+
+      <!-- SVG illustration -->
+      <div class="hero-illustration">
+        <svg class="berry-cluster" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Leaves -->
+          <ellipse cx="100" cy="160" rx="60" ry="15" fill="#2d5016" opacity="0.2"/>
+          <path d="M60 120 Q40 80 70 60 Q80 100 60 120Z" fill="#4a7c28" opacity="0.7"/>
+          <path d="M140 115 Q165 75 135 58 Q125 95 140 115Z" fill="#2d5016" opacity="0.7"/>
+          <path d="M100 130 Q95 90 110 75 Q118 108 100 130Z" fill="#4a7c28" opacity="0.5"/>
+          <!-- Berries cluster -->
+          <circle cx="100" cy="95" r="22" fill="#3d2a6e" opacity="0.95"/>
+          <circle cx="100" cy="95" r="22" fill="url(#berryGrad1)"/>
+          <circle cx="72" cy="108" r="18" fill="#6b4fa0" opacity="0.9"/>
+          <circle cx="72" cy="108" r="18" fill="url(#berryGrad2)"/>
+          <circle cx="128" cy="108" r="18" fill="#3d2a6e" opacity="0.85"/>
+          <circle cx="128" cy="108" r="18" fill="url(#berryGrad3)"/>
+          <circle cx="85" cy="128" r="16" fill="#8b2252" opacity="0.9"/>
+          <circle cx="85" cy="128" r="16" fill="url(#berryGrad4)"/>
+          <circle cx="116" cy="126" r="16" fill="#6b4fa0" opacity="0.9"/>
+          <circle cx="116" cy="126" r="16" fill="url(#berryGrad5)"/>
+          <!-- Bloom dots (star shapes on top of berries) -->
+          <circle cx="100" cy="79" r="3" fill="rgba(255,255,255,0.5)"/>
+          <circle cx="98" cy="77" r="1" fill="rgba(255,255,255,0.8)"/>
+          <circle cx="102" cy="77" r="1" fill="rgba(255,255,255,0.8)"/>
+          <circle cx="72" cy="93" r="2.5" fill="rgba(255,255,255,0.5)"/>
+          <circle cx="128" cy="93" r="2.5" fill="rgba(255,255,255,0.5)"/>
+          <circle cx="85" cy="114" r="2" fill="rgba(255,255,255,0.5)"/>
+          <circle cx="116" cy="112" r="2" fill="rgba(255,255,255,0.5)"/>
+          <!-- Shine -->
+          <circle cx="94" cy="88" r="5" fill="rgba(255,255,255,0.2)"/>
+          <defs>
+            <radialGradient id="berryGrad1" cx="35%" cy="30%">
+              <stop offset="0%" stop-color="#6b4fa0"/>
+              <stop offset="100%" stop-color="#251a44"/>
+            </radialGradient>
+            <radialGradient id="berryGrad2" cx="35%" cy="30%">
+              <stop offset="0%" stop-color="#9b7fd0"/>
+              <stop offset="100%" stop-color="#3d2a6e"/>
+            </radialGradient>
+            <radialGradient id="berryGrad3" cx="35%" cy="30%">
+              <stop offset="0%" stop-color="#6b4fa0"/>
+              <stop offset="100%" stop-color="#251a44"/>
+            </radialGradient>
+            <radialGradient id="berryGrad4" cx="35%" cy="30%">
+              <stop offset="0%" stop-color="#c4547a"/>
+              <stop offset="100%" stop-color="#4a0a2a"/>
+            </radialGradient>
+            <radialGradient id="berryGrad5" cx="35%" cy="30%">
+              <stop offset="0%" stop-color="#9b7fd0"/>
+              <stop offset="100%" stop-color="#3d2a6e"/>
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <h1 class="hero-title">
+        30種類のブルーベリーから、<br>
+        あなたの<span class="accent">&#8220;推し&#8221;</span>を見つけよう
+      </h1>
+
+      <p class="hero-subtitle">
+        埼玉県嵐山町から、愛情を込めて育てたブルーベリーをお届けします
+      </p>
+
+      <div class="hero-actions">
+        <a href="#picking" class="btn btn-primary">
+          🫐 ブルーベリー狩りを予約
+        </a>
+        <a href="#about" class="btn btn-outline">
+          農園のこだわりを見る
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">30<span style="font-size:1.2rem">+</span></span>
+          <span class="hero-stat-label">ブルーベリー品種</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" style="font-size:1.3rem">7〜8月</span>
+          <span class="hero-stat-label">開園シーズン</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">栗</span>
+          <span class="hero-stat-label">も栽培中</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">SCROLL</div>
+  </section>
+
+  <!-- =============================================
+       ABOUT
+  ============================================= -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrap fade-up">
+          <div class="about-image-main">
+            <div class="about-image-placeholder">
+              <span class="big-emoji">🫐🌿</span>
+              <p>農園の写真をここに掲載<br><small>（実際の農園・生産者の写真に差し替え可）</small></p>
+            </div>
+          </div>
+          <div class="about-badge">
+            <strong>30+</strong>品種の<br>ベリー
+          </div>
+        </div>
+
+        <div class="about-content fade-up">
+          <p class="section-label">About Our Farm</p>
+          <h2 class="section-title">
+            土と向き合い、<br>ひとつひとつ丁寧に
+          </h2>
+
+          <p style="color: var(--color-text-light); line-height: 2; margin-bottom: 16px;">
+            埼玉県嵐山町の自然豊かな土地で、私たちは30種類以上のブルーベリーを栽培しています。
+            大量生産ではなく、品種ひとつひとつの個性を活かすことにこだわり、
+            毎日丁寧に土と向き合いながら育てています。
+          </p>
+
+          <p style="color: var(--color-text-light); line-height: 2; margin-bottom: 24px;">
+            ブルーベリーは同じ「ブルーベリー」でも、品種によって甘み・酸味・食感が驚くほど違います。
+            「推しブルーベリーを見つけてください」というのは、そんな多様な個性を楽しんでほしいという
+            私たちの想いから生まれたコンセプトです。
+          </p>
+
+          <div class="about-message">
+            「ブルーベリーって奥が深くて、食べ比べていくうちにきっと"これだ！"という一品に出会えます。
+            その瞬間が、農家として一番うれしい瞬間です。」
+          </div>
+
+          <div class="about-farmer">
+            <div class="farmer-avatar">👨‍🌾</div>
+            <div class="farmer-info">
+              <div class="farmer-name">福島 ファーム代表</div>
+              <div class="farmer-title">埼玉県嵐山町のブルーベリー農家</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave divider -->
+  <div class="wave-divider" style="background: var(--color-white);">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:40px;">
+      <path d="M0,0 C240,60 480,0 720,40 C960,80 1200,20 1440,40 L1440,0 Z" fill="#faf7f2"/>
+    </svg>
+  </div>
+
+  <!-- =============================================
+       VARIETIES
+  ============================================= -->
+  <section id="varieties">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Variety Guide</p>
+        <h2 class="section-title">🫐 ブルーベリー品種図鑑</h2>
+        <p class="section-subtitle">
+          農園では30種類以上のブルーベリーを栽培。代表的な品種の特徴をご紹介します。
+          来園して全品種を食べ比べるのが一番の楽しみ方です！
+        </p>
+      </div>
+
+      <div class="varieties-grid">
+
+        <!-- ブルークロップ -->
+        <div class="variety-card fade-up">
+          <div class="variety-oshi-badge">人気No.1</div>
+          <div class="variety-icon">🫐</div>
+          <div class="variety-name">ブルークロップ</div>
+          <div class="variety-name-en">Bluecrop</div>
+          <div class="variety-desc">粒が大きく、バランスの良い甘みと爽やかな酸味が特徴。初めてのブルーベリー狩りにもおすすめの定番品種。</div>
+          <div class="variety-meta">
+            <div class="variety-bar-wrap">
+              <span class="variety-bar-label">甘み</span>
+              <div class="variety-bar"><div class="variety-bar-fill bar-sweet" style="width:75%"></div></div>
+              <span>★★★★</span>
+            </div>
+            <div class="variety-bar-wrap">
+              <span class="variety-bar-label">酸み</span>
+              <div class="variety-bar"><div class="variety-bar-fill bar-sour" style="width:55%"></div></div>
+              <span>★★★</span>
+            </div>
+          </div>
+          <div class="variety-season">🌸 旬：7月中旬〜8月上旬</div>
+        </div>
+
+        <!-- デューク -->
+        <div class="variety-card fade-up">
+          <div class="variety-icon">💜</div>
+          <div class="variety-name">デューク</div>
+          <div class="variety-name-en">Duke</div>
+          <div class="variety-desc">早生品種で、シーズン最初に楽しめる貴重な一品。香りが豊かで粒もしっかり。甘みと酸味のバランスが良い。</div>
+          <div class="variety-meta">
+            <div class="variety-bar-wrap">
+              <span class="variety-bar-label">甘み</span>
+              <div class="variety-bar"><div class="variety-bar-fill bar-sweet" style="width:65%"></div></div>
+              <span>★★★</span>
+            </div>
+            <div class="variety-bar-wrap">
+              <span class="variety-bar-label">酸み</span>
+              <div class="variety-bar"><div class="variety-bar-fill bar-sour" style="width:65%"></div></div>
+              <span>★★★</span>
+            </div>
+          </div>
+          <div class="variety-season">🌸 旬：7月上旬〜中旬（早生）</div>
+        </div>
+
+        <!-- チャンドラー -->
+        <div class="variety-card fade-up">
+          <div class="variety-oshi-badge">特大粒</div>
+          <div class="variety-icon">🍇</div>
+          <div class="variety-name">チャンドラー</div>
+          <div class="variety-name-en">Chandler</div>
+          <div class="variety-desc">世界最大級の粒が自慢。一粒食べるだけで満足感があるほど大きく、濃厚な甘みが特徴。見た目のインパクト大。</div>
+          <div class="variety-meta">
+            <div class="variety-bar-wrap">
+              <span class="variety-bar-label">甘み</span>
+              <div class="variety-bar"><div class="variety-bar-fill bar-sweet" style="width:85%"></div></div>
+              <span>★★★★★</span>
+            </div>
+            <div class="variety-bar-wrap">
+              <span class="variety-bar-label">酸み</span>
+              <div class="variety-bar"><div class="variety-bar-fill bar-sour" style="width:30%"></div></div>
+              <span>★★</span>
+            </div>
+          </div>
+          <div class="variety-season">🌸 旬：7月下旬〜8月中旬</div>
+        </div>
+
+        <!-- スパルタン -->
+        <div class="variety-card fade-up">
+          <div class="variety-oshi-badge">酸味好きに</div>
+          <div class="variety-icon">🔵</div>
+          <div class="variety-name">スパルタン</div>
+          <div class="variety-name-en">Spartan</div>
+          <div class="variety-desc">しっかりした酸味とコクのある甘みが絶妙なバランス。ジャムやスムージーにも最適な万能選手品種。</div>
+          <div class="variety-meta">
+            <div class="variety-bar-wrap">
+              <span class="variety-bar-label">甘み</span>
+              <div class="variety-bar"><div class="variety-bar-fill bar-sweet" style="width:55%"></div></div>
+              <span>★★★</span>
+            </div>
+            <div class="variety-bar-wrap">
+              <span class="variety-bar-label">酸み</span>
+              <div class="variety-bar"><div class="variety-bar-fill bar-sour" style="width:85%"></div></div>
+              <span>★★★★★</span>
+            </div>
+          </div>
+          <div class="variety-season">🌸 旬：7月下旬〜8月上旬</div>
+        </div>
+
+        <!-- オニール -->
+        <div class="variety-card fade-up">
+          <div class="variety-icon">🌟</div>
+          <div class="variety-name">オニール</div>
+          <div class="variety-name-en">O'Neal</div>
+          <div class="variety-desc">南部ハイブッシュ系の品種で、独特の甘い香りが魅力。暖かい嵐山の気候でのびのびと育ちます。</div>
+          <div class="variety-meta">
+            <div class="variety-bar-wrap">
+              <span class="variety-bar-label">甘み</span>
+              <div class="variety-bar"><div class="variety-bar-fill bar-sweet" style="width:80%"></div></div>
+              <span>★★★★</span>
+            </div>
+            <div class="variety-bar-wrap">
+              <span class="variety-bar-label">酸み</span>
+              <div class="variety-bar"><div class="variety-bar-fill bar-sour" style="width:45%"></div></div>
+              <span>★★</span>
+            </div>
+          </div>
+          <div class="variety-season">🌸 旬：7月中旬〜下旬</div>
+        </div>
+
+        <!-- エリザベス -->
+        <div class="variety-card fade-up">
+          <div class="variety-oshi-badge">香り◎</div>
+          <div class="variety-icon">💎</div>
+          <div class="variety-name">エリザベス</div>
+          <div class="variety-name-en">Elizabeth</div>
+          <div class="variety-desc">上品な香りと口の中に広がる深い甘みが特徴の高級品種。食べた後の余韻まで美しい、隠れた逸品。</div>
+          <div class="variety-meta">
+            <div class="variety-bar-wrap">
+              <span class="variety-bar-label">甘み</span>
+              <div class="variety-bar"><div class="variety-bar-fill bar-sweet" style="width:90%"></div></div>
+              <span>★★★★★</span>
+            </div>
+            <div class="variety-bar-wrap">
+              <span class="variety-bar-label">酸み</span>
+              <div class="variety-bar"><div class="variety-bar-fill bar-sour" style="width:35%"></div></div>
+              <span>★★</span>
+            </div>
+          </div>
+          <div class="variety-season">🌸 旬：8月上旬〜中旬（晩生）</div>
+        </div>
+
+      </div>
+
+      <div class="varieties-cta fade-up">
+        <p>「これが全部ではありません。農園には、まだまだ出会ったことのない品種が待っています」</p>
+        <a href="#picking" class="btn btn-primary">🫐 農園に来て全品種食べ比べをする</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       PICKING
+  ============================================= -->
+  <section id="picking">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Blueberry Picking</p>
+        <h2 class="section-title" style="color:white;">ブルーベリー狩りのご案内</h2>
+        <p class="section-subtitle">
+          毎年7月〜8月、農園を一般開放してブルーベリー狩り体験を行っています。<br>
+          摘みたてのベリーを、畑の中でそのまま味わってください。
+        </p>
+      </div>
+
+      <div class="picking-grid">
+        <div>
+          <div class="picking-info-cards">
+            <div class="info-card">
+              <div class="info-card-icon">📅</div>
+              <div class="info-card-label">開園期間</div>
+              <div class="info-card-value">7月上旬〜<br>8月下旬</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-icon">🕐</div>
+              <div class="info-card-label">営業時間</div>
+              <div class="info-card-value">9:00〜16:00<br><small style="opacity:0.7">※最終入場15:30</small></div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-icon">💰</div>
+              <div class="info-card-label">入園料</div>
+              <div class="info-card-value">詳細はお問い合わせください</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-icon">🅿️</div>
+              <div class="info-card-label">駐車場</div>
+              <div class="info-card-value">あり<br><small style="opacity:0.7">無料</small></div>
+            </div>
+          </div>
+
+          <div class="picking-tips">
+            <h3 style="font-size:0.8rem; letter-spacing:0.1em; opacity:0.7; margin-bottom:16px;">持ち物・服装のアドバイス</h3>
+            <div class="tip-item">
+              <span class="tip-icon">👒</span>
+              <span class="tip-text">帽子・日焼け止め必須。夏の畑は日差しが強いです。</span>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">👕</span>
+              <span class="tip-text">汚れても良い服装で。果汁で染まることがあります。</span>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">👟</span>
+              <span class="tip-text">歩きやすい靴を。ヒールや草履はNG。</span>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">💧</span>
+              <span class="tip-text">飲み物は持参を。熱中症対策をしっかりと。</span>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">📱</span>
+              <span class="tip-text">スマホ充電もお忘れなく。写真をたくさん撮ってください！</span>
+            </div>
+          </div>
+
+          <div class="picking-notes">
+            <h3>ご注意事項</h3>
+            <ul>
+              <li>雨天時は状況によりクローズすることがあります。事前にInstagramまたはお電話でご確認ください。</li>
+              <li>予約は不要ですが、混雑時はお待ちいただく場合があります。</li>
+              <li>ペットの同伴はご遠慮ください。</li>
+              <li>摘み取ったブルーベリーのその場での食べ残しはご遠慮ください。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="picking-map">
+            <div class="map-placeholder">
+              <div class="map-icon">🗺️</div>
+              <p><strong>埼玉県比企郡嵐山町</strong></p>
+              <p style="font-size:0.8rem;">Googleマップはこちらに埋め込み予定</p>
+              <a href="https://www.google.com/maps/search/嵐山町+ブルーベリーファーム"
+                 target="_blank"
+                 style="background:rgba(255,255,255,0.2); padding:8px 16px; border-radius:50px; font-size:0.85rem; border:1px solid rgba(255,255,255,0.3);">
+                Googleマップで開く →
+              </a>
+            </div>
+          </div>
+
+          <div class="access-info">
+            <h3 style="font-size:0.8rem; letter-spacing:0.12em; opacity:0.7; margin-bottom:12px;">アクセス</h3>
+            <div class="access-item">
+              <div>
+                <strong>電車でお越しの方</strong>
+                <div>東武東上線「武蔵嵐山駅」より車で約10分、またはタクシーをご利用ください。</div>
+              </div>
+            </div>
+            <div class="access-item">
+              <div>
+                <strong>お車でお越しの方</strong>
+                <div>関越自動車道「嵐山小川IC」より約15分。駐車場完備。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave divider -->
+  <div class="wave-divider" style="background:var(--color-primary-dark);">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:40px;">
+      <path d="M0,40 C240,0 480,60 720,20 C960,-20 1200,40 1440,20 L1440,60 L0,60 Z" fill="white"/>
+    </svg>
+  </div>
+
+  <!-- =============================================
+       HOW TO EAT
+  ============================================= -->
+  <section id="howtoeeat">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">How to Enjoy</p>
+        <h2 class="section-title">🍽️ おいしい食べ方</h2>
+        <p class="section-subtitle">
+          摘みたてはもちろん、持ち帰ったブルーベリーをもっとおいしく楽しむアイデアをご紹介。
+        </p>
+      </div>
+
+      <div class="eat-grid">
+        <div class="eat-card fade-up">
+          <div class="eat-icon">🫐</div>
+          <div class="eat-title">そのままで</div>
+          <div class="eat-desc">摘みたてが一番！農園でそのまま食べるのが最高の贅沢。品種ごとに食べ比べてみてください。</div>
+        </div>
+        <div class="eat-card fade-up">
+          <div class="eat-icon">🧊</div>
+          <div class="eat-title">冷凍して</div>
+          <div class="eat-desc">冷凍すると甘みが増し、長期保存も可能に。冷凍庫から出してそのままアイス感覚で食べても◎</div>
+        </div>
+        <div class="eat-card fade-up">
+          <div class="eat-icon">🫙</div>
+          <div class="eat-title">ジャムに</div>
+          <div class="eat-desc">砂糖と一緒に煮詰めるだけで本格ジャムが完成。パンやヨーグルトのお供に。瓶に入れてプレゼントにも。</div>
+        </div>
+        <div class="eat-card fade-up">
+          <div class="eat-icon">🥤</div>
+          <div class="eat-title">スムージーに</div>
+          <div class="eat-desc">バナナや豆乳と一緒にミキサーへ。美しい紫色のスムージーはSNS映えも抜群。栄養満点の朝食に。</div>
+        </div>
+        <div class="eat-card fade-up">
+          <div class="eat-icon">🧁</div>
+          <div class="eat-title">お菓子作りに</div>
+          <div class="eat-desc">マフィン・タルト・チーズケーキなど、お菓子の材料として大活躍。生地に混ぜ込むと絶品に。</div>
+        </div>
+        <div class="eat-card fade-up">
+          <div class="eat-icon">🥗</div>
+          <div class="eat-title">サラダに</div>
+          <div class="eat-desc">意外な組み合わせに挑戦！クリームチーズやナッツと合わせるとおしゃれな一品に仕上がります。</div>
+        </div>
+      </div>
+
+      <div class="eat-instagram fade-up">
+        <p>📸 食べ方のアイデアは <strong>Instagram</strong> でも随時発信中！<br>実際のレシピや旬の情報をチェックしてみてください。</p>
+        <a href="https://www.instagram.com/fukushimabbf/" target="_blank" rel="noopener" class="instagram-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          @fukushimabbf のInstagramを見る
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       COMMUNITY
+  ============================================= -->
+  <section id="community">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Local Partners</p>
+        <h2 class="section-title">🌾 地域のなかまたち</h2>
+        <p class="section-subtitle">
+          福島ブルーベリーファームは、嵐山町の地域と一緒に歩んでいます。
+          近隣の素敵なお店もぜひ立ち寄ってみてください。
+        </p>
+      </div>
+
+      <div class="community-grid">
+        <div class="community-card fade-up">
+          <div class="community-card-header">
+            <div class="community-card-icon icon-bg-green">🥬</div>
+            <div>
+              <div class="community-card-title">地域の直売所</div>
+              <div class="community-card-type">農産物直売所</div>
+            </div>
+          </div>
+          <div class="community-card-body">
+            嵐山町の農家が育てた新鮮な野菜・果物が並ぶ直売所。
+            ブルーベリーの直販も行っています。摘み取り体験の前後にぜひお立ち寄りください。
+          </div>
+        </div>
+
+        <div class="community-card fade-up">
+          <div class="community-card-header">
+            <div class="community-card-icon icon-bg-yellow">🍵</div>
+            <div>
+              <div class="community-card-title">とうふ工房</div>
+              <div class="community-card-type">手作り豆腐・豆乳</div>
+            </div>
+          </div>
+          <div class="community-card-body">
+            地元の大豆を使った手作り豆腐が人気。
+            豆乳はブルーベリースムージーとの相性抜群！農園と合わせた食べ比べセットもおすすめです。
+          </div>
+        </div>
+
+        <div class="community-card fade-up">
+          <div class="community-card-header">
+            <div class="community-card-icon icon-bg-brown">🌰</div>
+            <div>
+              <div class="community-card-title">嵐山町の栗農家</div>
+              <div class="community-card-type">栗の直売・体験</div>
+            </div>
+          </div>
+          <div class="community-card-body">
+            秋には嵐山町の栗も見逃せません。福島ファームでも栗を栽培中。
+            シーズンには農園での栗拾い体験も検討中です。
+          </div>
+        </div>
+      </div>
+
+      <div class="day-trip fade-up">
+        <h3>🗺️ 嵐山町で一日楽しむモデルコース</h3>
+        <p>ブルーベリー狩りと一緒に、嵐山の魅力を丸一日満喫しよう！</p>
+        <div class="day-trip-steps">
+          <div class="trip-step">
+            <span class="step-icon">☀️</span>
+            <div>午前</div>
+            <div style="font-weight:700;">ブルーベリー狩り</div>
+          </div>
+          <span class="trip-arrow">→</span>
+          <div class="trip-step">
+            <span class="step-icon">🍵</span>
+            <div>お昼</div>
+            <div style="font-weight:700;">とうふランチ</div>
+          </div>
+          <span class="trip-arrow">→</span>
+          <div class="trip-step">
+            <span class="step-icon">🛒</span>
+            <div>午後</div>
+            <div style="font-weight:700;">直売所でお買い物</div>
+          </div>
+          <span class="trip-arrow">→</span>
+          <div class="trip-step">
+            <span class="step-icon">🌅</span>
+            <div>夕方</div>
+            <div style="font-weight:700;">嵐山渓谷を散策</div>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-white">コースについて問い合わせる</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       INSTAGRAM
+  ============================================= -->
+  <section id="instagram">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Instagram</p>
+        <h2 class="section-title">📸 最新の農園だより</h2>
+        <p class="section-subtitle">
+          Instagramでは農園の日常・食べ方レシピ・開園情報を随時発信中。
+          フォローしてシーズン情報をお見逃しなく！
+        </p>
+      </div>
+
+      <div class="insta-feed-placeholder">
+        <div class="insta-grid-preview">
+          <div class="insta-cell">🫐</div>
+          <div class="insta-cell">🌿</div>
+          <div class="insta-cell">☀️</div>
+          <div class="insta-cell">🍓</div>
+          <div class="insta-cell">👨‍🌾</div>
+          <div class="insta-cell">🧁</div>
+          <div class="insta-cell">🌾</div>
+          <div class="insta-cell">🫙</div>
+          <div class="insta-cell">💜</div>
+        </div>
+
+        <!-- Instagram埋め込みウィジェット用プレースホルダー -->
+        <!-- 実装時は以下のウィジェットコードに置き換えてください -->
+        <!-- 例：SnapWidget, Elfsight Instagram Feed など -->
+        <p class="insta-desc">
+          Instagramフィードは実装時に自動表示されます。<br>
+          <small>（SnapWidget や Elfsight などのウィジェットで簡単に埋め込み可能）</small>
+        </p>
+
+        <a href="https://www.instagram.com/fukushimabbf/" target="_blank" rel="noopener" class="instagram-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          @fukushimabbf をフォローする
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       CONTACT
+  ============================================= -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">📩 お問い合わせ</h2>
+        <p class="section-subtitle">
+          ブルーベリー狩りの詳細や直売について、お気軽にご連絡ください。
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📍</div>
+            <div>
+              <div class="contact-info-label">所在地</div>
+              <div class="contact-info-value">埼玉県比企郡嵐山町<br><small style="color:var(--color-text-light);">（詳細住所はお問い合わせ時にお知らせします）</small></div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📞</div>
+            <div>
+              <div class="contact-info-label">お電話</div>
+              <a href="tel:XXXX-XX-XXXX" class="contact-phone-link">
+                ※ 電話番号は要確認
+              </a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">🕐</div>
+            <div>
+              <div class="contact-info-label">受付時間</div>
+              <div class="contact-info-value">9:00〜17:00<br><small style="color:var(--color-text-light);">※農作業中は折り返しになる場合があります</small></div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📸</div>
+            <div>
+              <div class="contact-info-label">Instagram DM</div>
+              <div class="contact-info-value">
+                <a href="https://www.instagram.com/fukushimabbf/" target="_blank" rel="noopener" style="color:var(--color-primary-light);">@fukushimabbf</a>
+                <br><small style="color:var(--color-text-light);">DMでのご連絡もお受けしています</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label class="form-label" for="name">お名前 <span class="required">必須</span></label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="山田 花子" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">メールアドレス <span class="required">必須</span></label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="example@email.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="phone">電話番号 <span style="color:var(--color-text-light);font-size:0.75rem;">任意</span></label>
+              <input type="tel" id="phone" name="phone" class="form-input" placeholder="090-0000-0000">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="category">お問い合わせ種別 <span class="required">必須</span></label>
+              <select id="category" name="category" class="form-select" required>
+                <option value="">選択してください</option>
+                <option value="picking">🫐 ブルーベリー狩りについて</option>
+                <option value="purchase">📦 直売・発送について</option>
+                <option value="other">💬 その他</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">お問い合わせ内容 <span class="required">必須</span></label>
+              <textarea id="message" name="message" class="form-textarea" placeholder="ご質問・ご要望をご記入ください" required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">
+              送信する →
+            </button>
+
+            <p class="form-note">
+              ※ ご返信は通常2〜3営業日以内に差し上げます。<br>
+              農繁期はお時間をいただく場合があります。
+            </p>
+          </form>
+
+          <div id="formSuccess" style="display:none; text-align:center; padding:40px 20px;">
+            <div style="font-size:3rem; margin-bottom:16px;">🫐</div>
+            <h3 style="font-family:var(--font-serif); color:var(--color-primary-dark); margin-bottom:8px;">お問い合わせありがとうございます！</h3>
+            <p style="color:var(--color-text-light); font-size:0.9rem;">2〜3営業日以内にご返信いたします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">🫐 埼玉嵐山 福島ブルーベリーファーム</div>
+          <p class="footer-tagline">
+            30種類以上のブルーベリーから、<br>
+            あなたの"推し"を見つけてください。<br>
+            埼玉県嵐山町から、愛情を込めてお届けします。
+          </p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/fukushimabbf/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <p class="footer-col-title">ナビゲーション</p>
+          <ul class="footer-links">
+            <li><a href="#about">農園について</a></li>
+            <li><a href="#varieties">品種図鑑</a></li>
+            <li><a href="#picking">ブルーベリー狩り</a></li>
+            <li><a href="#howtoeeat">おいしい食べ方</a></li>
+            <li><a href="#community">地域連携</a></li>
+            <li><a href="#instagram">Instagram</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-col-title">基本情報</p>
+          <div class="footer-address">
+            <p>埼玉県比企郡嵐山町<br>（正確な住所は要確認）</p>
+            <p style="margin-top:12px;">開園期間：7月〜8月</p>
+            <p style="margin-top:4px;">営業時間：9:00〜16:00</p>
+          </div>
+
+          <p class="footer-col-title" style="margin-top:24px;">地域連携</p>
+          <ul class="footer-links">
+            <li><a href="#">地域の直売所</a></li>
+            <li><a href="#">とうふ工房</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 埼玉嵐山 福島ブルーベリーファーム. All rights reserved.</span>
+        <span>埼玉県比企郡嵐山町</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =============================================
+       JavaScript
+  ============================================= -->
+  <script>
+    // ナビゲーション スクロール判定
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // ハンバーガーメニュー
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileNavClose = document.getElementById('mobileNavClose');
+
+    hamburger.addEventListener('click', () => {
+      mobileNav.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    mobileNavClose.addEventListener('click', closeMobileNav);
+
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // フェードアップアニメーション（Intersection Observer）
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    fadeEls.forEach(el => observer.observe(el));
+
+    // お問い合わせフォーム送信
+    function handleSubmit(e) {
+      e.preventDefault();
+      // 実際の送信処理はここに実装
+      // 例: Googleフォームへのリダイレクト、Formspree等
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }
+
+    // ナビリンクのスムーズスクロール（シーズンバナー分のオフセット調整）
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          const offset = 70;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // 品種バーのアニメーション
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const fills = entry.target.querySelectorAll('.variety-bar-fill');
+          fills.forEach(fill => {
+            const w = fill.style.width;
+            fill.style.width = '0%';
+            setTimeout(() => { fill.style.width = w; }, 100);
+          });
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.variety-card').forEach(card => barObserver.observe(card));
+  </script>
+
+</body>
+</html>
